@@ -53,6 +53,12 @@ class Stopwatch {
 		this.running = false;
 		clearInterval(this.watch);
 	}
+
+	stopResetPrint() {
+		this.stop();
+		this.reset();
+		this.print();
+	}
 }
 
 function pad0(value) {
@@ -71,3 +77,12 @@ startButton.addEventListener('click', () => stopwatch.start());
 
 let stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
+
+let resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', () => stopwatch.stopResetPrint());
+
+let saveTimeButton = document.getElementById('save_time');
+saveTimeButton.addEventListener('click', () => stopwatch.saveTime());
+
+let clearSavedTimesButton = document.getElementById('clear_times');
+clearSavedTimesButton.addEventListener('click', () => stopwatch.clearTimes());
