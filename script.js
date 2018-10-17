@@ -57,11 +57,16 @@ class Stopwatch {
 	stopResetPrint() {
 		this.stop();
 		this.reset();
+		this.clearTimes(savedTimes);
 		this.print();
 	}
 
 	saveTime(location) {
 		location.innerHTML += `<li> ${this.format(this.times)}</li>`;
+	}
+
+	clearTimes(location){
+		location.innerText = 'Saved times:';
 	}
 
 }
@@ -91,4 +96,4 @@ let savedTimes = document.getElementById('results');
 saveTimeButton.addEventListener('click', () => stopwatch.saveTime(savedTimes));
 
 let clearSavedTimesButton = document.getElementById('clear_times');
-clearSavedTimesButton.addEventListener('click', () => stopwatch.clearTimes());
+clearSavedTimesButton.addEventListener('click', () => stopwatch.clearTimes(savedTimes));
